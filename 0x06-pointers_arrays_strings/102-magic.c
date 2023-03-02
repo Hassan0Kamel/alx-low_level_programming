@@ -1,4 +1,8 @@
+
 #include <stdio.h>
+/**
+ * main: entry point
+ */
 int main(void)
 {
 int n;
@@ -17,7 +21,7 @@ p = &n;
  *
  *                * - only one statement
  *
- *                   * - you are not allowed to code anything else than this line of code
+ ** - you are not allowed to code anything else than this line of code
  *
  */
 *(p + 5) = 98;
