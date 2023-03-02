@@ -1,9 +1,9 @@
 #include <stdio.h>
+/**
+ *  * main - Entry point 
+ *  * Return: Always 0 (Success)
+ */
 int main(void)
-/*
- **main - entry point of the code
- **return:0
-*/
 {
 int n;
 int a[5];
