@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  *  * _strncat - concatenate two strings
  *
@@ -11,7 +10,6 @@
  *
  *      * @n: input value
  *
- *       *
  *
  *        * Return: dest
  *
