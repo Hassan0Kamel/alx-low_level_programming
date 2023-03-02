@@ -1,8 +1,7 @@
-
 #include <stdio.h>
 /**
- * main: entry poin to the code.t
- * return zero
+ * -main: entry poin to the code.t
+ * -return zero
  */
 int main(void)
 {
