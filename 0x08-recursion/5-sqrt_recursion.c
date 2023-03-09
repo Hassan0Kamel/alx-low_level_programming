@@ -30,7 +30,7 @@ return (actual_sqrt_recursion(n, 0));
  *
  * *
  *
- * * Return: the resulting square root
+ * * Return: the resulting square root.
  *
  */
 
