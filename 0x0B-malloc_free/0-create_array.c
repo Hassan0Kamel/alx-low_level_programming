@@ -13,7 +13,7 @@
  *
  * *
  *
- * *  *Return: a pointer to the [] or 0 if it fails
+ * *  *Return: a pointer to the [] or 0 if it fails.
  *
  */
 
