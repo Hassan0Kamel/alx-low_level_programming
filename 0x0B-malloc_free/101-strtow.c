@@ -74,7 +74,7 @@ c = 0;
 }
 }
 else if (c++ == 0)
-start = I;
+start = i;
 }
 matrix[k] = NULL;
 return (matrix);
