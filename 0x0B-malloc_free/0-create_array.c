@@ -11,9 +11,7 @@
  *
  * *  @size: number of bytes to allocate
  *
- * *
  *
- * *  Return : zero success
  *
  */
 
