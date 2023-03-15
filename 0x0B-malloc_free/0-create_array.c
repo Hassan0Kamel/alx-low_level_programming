@@ -13,7 +13,7 @@
  *
  * *
  *
- * *  Return: a pointer to the array or null if it fails
+ * *  Return: a pointer to the array or 0 if it fails
  *
  */
 
