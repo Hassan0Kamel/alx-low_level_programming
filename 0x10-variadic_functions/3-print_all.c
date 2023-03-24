@@ -16,7 +16,7 @@ if (format)
 {
 while (format[i])
 {
-switch (format[I])
+switch (format[i])
 {
 case 'c':
 printf("%s%c", sep, va_arg(list, int));
