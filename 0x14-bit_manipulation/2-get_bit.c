@@ -3,7 +3,7 @@
 /**
  * get_bit - return the value of a bit at index in decimal
  * @n: number for search
- * @index: the index of the bit 
+ * @index: the index of the bit
  * Return: value of the bit.
  */
 
