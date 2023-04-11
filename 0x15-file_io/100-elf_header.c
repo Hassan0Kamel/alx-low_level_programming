@@ -58,7 +58,7 @@ void print_class(unsigned char *e_ident)
 
 	switch (e_ident[EI_CLASS])
 	{
-		case ELFCLASSONE:
+		case ELFCLASSNONE:
 			printf("none\n");
 			break;
 
@@ -111,7 +111,7 @@ void print_data(unsigned char *e_ident)
  * or the function fails - exit code 98.
  */
 
-int main(int__attribute__((__unused__)) argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
 	int o, r;
