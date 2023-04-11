@@ -1,21 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <elf.h>
-
-void check_elf(unsigned char *e_ident);
-void print_magic(unsigned char *e_ident);
-void print_class(unsigned char *e_ident);
-void print_data(unsigned char *e_ident);
-void print_version(unsigned char *e_ident);
-void print_abi(unsigned char *e_ident);
-void print_osabi(unsigned char *e_ident);
-void print_type(unsigned int e_type, unsigned char *e_ident);
-void print_entry(unsigned long int e_entry, unsigned char *e_ident);
-void close_elf(int elf);
+#include "main.h"
 
 /**
  * check_elf - Checks if a file is an ELF file.
@@ -56,7 +42,7 @@ void print_magic(unsigned char *e_ident)
 	{
 		printf("%02x", e_ident[index]);
 
-		if (index == EI_NIDENT -1)
+		if (index == EI_NIDENT - 1)
 			printf("\n");
 		else
 			printf(" ");
@@ -76,7 +62,7 @@ void print_class(unsigned char *e_ident)
 		case ELFCLASSONE:
 			printf("none\n");
 			break;
-			
+
 		case ELFCLASS32:
 			printf("ELF32\n");
 			break;
@@ -143,7 +129,7 @@ void print_version(unsigned char *e_ident)
 
 void print_osabi(unsigned char *e_ident)
 {
-	printf( " OS/ABI: ");
+	printf(" OS/ABI: ");
 
 	switch (e_ident[EI_OSABI])
 	{
@@ -181,6 +167,15 @@ void print_osabi(unsigned char *e_ident)
 			printf("unknown: %x>\n", e_ident[EI_OSABI]);
 	}
 }
+/**
+ * print_abi - printing the ABI version of ELF header
+ * @e_ident: pointerrr to arrayyy containining ELF ABI ver
+ */
+void print_abi(unsigned char *e_ident)
+{
+	printf(" ABI Version: %d\n",
+			e_ident[EI_ABIVERSION]);
+}
 
 /**
  * print_type - printing the type if an ELF header
@@ -192,7 +187,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
-	
+
 	printf(" TYPE: ");
 
 	switch (e_type)
@@ -231,7 +226,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
 			((e_entry >> 8) & 0xFF00FF);
-		e_entry = (e_entry << 16) | (e_entry >>16);
+		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
 
 	if (e_ident[EI_CLAsS] == ELFCLASS32)
@@ -264,7 +259,7 @@ void close_elf(int elf)
  * @argc: Num of args supplied to the program
  * @argv: array of pointers to arguments.
  * Return: 0 if success
- * Description: if the file isn't an ELF file 
+ * Description: if the file isn't an ELF file
  * or the function fails - exit code 98.
  */
 
@@ -274,7 +269,6 @@ int main(int__attribute__((__unused__)) argc, char *argv[])
 	int o, r;
 
 	o = open(argv[1], O_RDONLY);
-
 	if (o == -1)
 	{
 		dprintf(STDERR_FILENO,
@@ -298,18 +292,16 @@ int main(int__attribute__((__unused__)) argc, char *argv[])
 				"Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
-
 	check_elf(header->e_ident);
 	printf("ELF Header:\n");
 	print_magic(header->e_ident);
-	print_class(header->e-ident);
+	print_class(header->e_ident);
 	print_data(header->e_ident);
 	print_version(header->e_ident);
 	print_osabi(header->e_ident);
 	print_abi(header->e_ident);
 	print_type(header->e_type, header->e_ident);
 	print_entry(header->e_entry, header->e_ident);
-
 	free(header);
 	close_elf(o);
 	return (0);
