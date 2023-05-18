@@ -1,0 +1,16 @@
+#include "lists.h"
+/**
+ * free_dlistint - Freeslistint_t list.
+ * @head: The head tint_t list.
+ */
+void free_dlistint(dlistint_t *head)
+{
+	dlistint_t *tmp;
+
+	while (head)
+	{
+		tmp = head->next;
+		free(head);
+		head = tmp;
+	}
+}
