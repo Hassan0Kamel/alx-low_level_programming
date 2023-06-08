@@ -2,7 +2,7 @@
 
 /**
  * hash_table_get - Retrieve th
- * @ht: A pointer 
+ * @ht: A pointer
  * @key: The ke
  * Return: If the key cann
  */
